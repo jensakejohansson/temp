@@ -1,4 +1,4 @@
-from calculator_helper import CalculatorHelper
+from BE.calculator_helper import CalculatorHelper
 
 class BaseTestCalculator():
     def setup_method(self, method):

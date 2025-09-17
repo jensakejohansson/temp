@@ -36,10 +36,14 @@ jobs:
           pip install pytest requests httpx attrs python-dateutil
 
       - name: start REST API
-        run: python calculator.py --rest &
+        run: |
+          python calculator.py --rest &
+          sleep 5
 
       - name: run tests
-        run: pytest --junit-xml=report.xml
+        run: |
+          export PYTHONPATH=. 
+          pytest --junit-xml=report.xml
 
       - name: publish test report
         uses: mikepenz/action-junit-report@v5

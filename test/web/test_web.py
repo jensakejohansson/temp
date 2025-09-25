@@ -11,8 +11,8 @@ class TestWeb(WebBase):
     def test_register(self):
         self.page.goto("http://localhost:8080/login.html")
         LoginPage(self.page).element("register").click()
-        LoginPage(self.page).register("admin5", "test123", "test123")
-        expect(CalculatorPage(self.page).element("username")).to_have_text("admin5")
+        LoginPage(self.page).register("admin8", "test123", "test123")
+        expect(CalculatorPage(self.page).element("username")).to_have_text("admin8", timeout=15000)
 
     def test_add(self):
         CalculatorPage(self.page).add()

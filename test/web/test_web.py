@@ -9,7 +9,6 @@ import pytest
 class TestWeb(WebBase):
 
     def test_register(self):
-        self.page.goto("http://localhost:8080/login.html")
         LoginPage(self.page).element("register").click()
         LoginPage(self.page).register("admin8", "test123", "test123")
         expect(CalculatorPage(self.page).element("username")).to_have_text("admin8", timeout=15000)
@@ -31,10 +30,6 @@ class TestWeb(WebBase):
         expect(CalculatorPage(self.page).element("calculator_screen")).to_have_value("1")
 
     def test_verify(self):
-        self.page.goto("http://localhost:8080/login.html")
-        LoginPage(self.page).element("username").fill("admin")
-        LoginPage(self.page).element("password").fill("test1234")
-        LoginPage(self.page).element("login").click()
         CalculatorPage(self.page).add()
         CalculatorPage(self.page).element("toggle_history").click()
         expect(CalculatorPage(self.page).element("text_area")).to_have_value("1+1=2\n")

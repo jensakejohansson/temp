@@ -48,7 +48,9 @@ jobs:
         run: playwright install
 
       - name: Start Docker Compose containers
-        run: docker compose -p webcalculator up -d
+        run: |
+          docker compose -p webcalculator up -d
+          sleep 10
      
 
   # Run web tests

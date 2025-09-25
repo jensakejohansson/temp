@@ -11,8 +11,8 @@ class TestWeb(WebBase):
     def test_register(self):
         self.page.goto("http://localhost:8080/login.html")
         LoginPage(self.page).element("register").click()
-        LoginPage(self.page).register("admin4", "test123", "test123")
-        expect(CalculatorPage(self.page).element("username")).to_have_text("admin4")
+        LoginPage(self.page).register("admin5", "test123", "test123")
+        expect(CalculatorPage(self.page).element("username")).to_have_text("admin5")
 
     def test_add(self):
         CalculatorPage(self.page).add()
@@ -32,8 +32,8 @@ class TestWeb(WebBase):
 
     def test_verify(self):
         self.page.goto("http://localhost:8080/login.html")
-        LoginPage(self.page).element("username").fill("admin2")
-        LoginPage(self.page).element("password").fill("test123")
+        LoginPage(self.page).element("username").fill("admin")
+        LoginPage(self.page).element("password").fill("test1234")
         LoginPage(self.page).element("login").click()
         CalculatorPage(self.page).add()
         CalculatorPage(self.page).element("toggle_history").click()

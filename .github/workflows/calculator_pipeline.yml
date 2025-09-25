@@ -48,9 +48,7 @@ jobs:
         run: playwright install
 
       - name: Start Docker Compose containers
-        run: |
-          docker compose -p webcalculator up -d
-          sleep 10
+        run: docker compose -p webcalculator up -d
      
 
   # Run web tests
@@ -70,15 +68,6 @@ jobs:
         uses: mikepenz/action-junit-report@v5      
         with:
           report_paths: '**/*.xml'
-      
-      - name: Upload Playwright traces
-        if: always()                    # run even if tests failed
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces
-          path: '**/*.zip'         # adjust if you use another folder
-          if-no-files-found: ignore
-          retention-days: 14
 
       - name: Log in to ACR
         uses: docker/login-action@v2

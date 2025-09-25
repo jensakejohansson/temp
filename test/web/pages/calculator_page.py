@@ -16,6 +16,7 @@ class CalculatorPage(PageBase):
             "toggle_history": "#toggle-button",
             "text_window": "#text-window",
             "text_area": "#history",
+            "logout": "#logout-button",
         })
 
     def add(self):

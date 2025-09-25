@@ -19,4 +19,8 @@ class LoginPage(PageBase):
         self.element("password2").fill(password2)
         self.element("register").click()
     
+    def login(self, username, password):
+        self.element("username").fill(username)
+        self.element("password").fill(password)
+        self.element("login").click()
         

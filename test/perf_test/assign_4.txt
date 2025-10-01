@@ -1,0 +1,34 @@
+Q: Assuming 50 simultaneous users:
+1. What is the 95th percentile of response time? 
+	All operations average at around 46s.
+2. What is the throughput?
+	The throughput reaches approx. 16 rps.
+
+
+Q: How many simultaneous users can the application handle
+& reliably provide responses?
+
+A: The application can handle around 350 users before it starts delivering
+unreliable responses. (see stats.png in this dir)
+
+
+Q: Max throughput with reliable responses?
+
+A: The application can reach approximately 102rps before responses become
+unreliable.
+
+
+Q: Under which circumstances do add calculations take longer than usual?
+
+A: Since the issue is not connected to the number of simultaneous users, 
+we have to assume that the issue is triggered by the user input. Due to the 
+application's limited resources, equations with exceedingly large numbers or
+bad notation (e.g. 5++5 or 5+-5) can cause the spike in response time.
+
+
+Q: App crashes from time to time, why?
+
+A: The application crashes once the working memory load starts exceeding 1.5GB.
+Due to the restriction in docker-compose-perf.yml, the application starts
+increasing stress on other PC components like CPU and disk writing, which
+leads to higher response times and the eventual application crash.

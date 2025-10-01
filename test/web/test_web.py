@@ -42,7 +42,7 @@ class TestWeb(WebBase):
         CalculatorPage(self.page).logout()
 
     def test_history(self):
-        LoginPage(self.page).login("snoopy", "1234")
+        LoginPage(self.page).login("admin", "test1234")
         CalculatorPage(self.page).check_history()
         expect(CalculatorPage(self.page).element("history")).to_have_value("1+2=3\n1*2=2\n")
         CalculatorPage(self.page).logout()    

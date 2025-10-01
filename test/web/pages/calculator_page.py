@@ -29,7 +29,6 @@ class CalculatorPage(PageBase):
         self.operations("key-add")
         self.operations("key-multiply")
         self.element("toggle-button").click()
-        self.element("logout").click()
     
     def logout(self):
         self.element("logout").click()     
